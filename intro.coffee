@@ -62,6 +62,13 @@ describe "rewriting test", ->
   it "should give us 8", ->
     assert.equal(rewrite(8), 8)
 
+describe "testing splats", ->
+  it "should return the variables", ->
+    assert.deepEqual(splatTest(1, 2, 3, 6), [1, 2, 3, 6])
+  it "should do the same", ->
+    assert.deepEqual(splatTest(1, 2, 3, 4, 5, 6), [1, 2, 3, 4, 5, 6])
+  it "should do the same again", ->
+    assert.deepEqual(splatTest(1), [1])
 
 
 sumArr = (anArr) ->
@@ -117,3 +124,6 @@ rewrite = (num) ->
   write = 45
   [write,num] = [num,write]
   write
+
+splatTest = (num...) ->
+  num
