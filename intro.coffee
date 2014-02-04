@@ -34,6 +34,36 @@ describe "first two and last two test", ->
   it "should return [7, 8]", ->
     assert.deepEqual(lastTwo(arr), [7, 8])
 
+describe "is less than three", ->
+  it "less than three", ->
+    assert.equal(lessThree(2), true)
+
+describe "not between 10 and 20", ->
+  it "between 10 and 20", ->
+    assert.equal(notTenTwenty(15), false)
+
+describe "on and less than 5", ->
+  it "should evaluate to true", ->
+    assert.equal(onFive(true, 2), true)
+
+describe "tryFive", ->
+  it "should give us 5", ->
+    assert.equal(tryFive(), 5)
+  it "should give us 3", ->
+    assert.equal(tryFive(3), 3)
+  it "should return -2", ->
+    assert.equal(tryFive(-2), -2)
+
+describe "rewriting test", ->
+  it "should give us 2", ->
+    assert.equal(rewrite(2), 2)
+  it "should give us 4", ->
+    assert.equal(rewrite(4), 4)
+  it "should give us 8", ->
+    assert.equal(rewrite(8), 8)
+
+
+
 sumArr = (anArr) ->
   sum = 0
   sum += num for num in anArr
@@ -60,3 +90,30 @@ firstTwo = (anArr) ->
 
 lastTwo = (anArr) ->
   last = anArr[anArr.length - 2...]
+  last
+
+lessThree = (num) ->
+  returnVal = false
+  if num < 3 then returnVal = true
+  returnVal
+
+notTenTwenty = (num) ->
+  returnVal = false
+  if num < 10 and num > 20
+    returnVal = true
+  returnVal
+
+onFive = (thing, num) ->
+  retVal = false
+  if thing is on and num < 5
+    retVal = yes
+  retVal
+
+tryFive = (num) ->
+  num ?=5
+  num
+
+rewrite = (num) ->
+  write = 45
+  [write,num] = [num,write]
+  write
