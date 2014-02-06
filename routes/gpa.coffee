@@ -9,6 +9,7 @@ headerString= '<!DOCTYPE html>
 bodyString='<form name="gpa">
     <label>Grade:
         <select id="firstG">
+            <option selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -34,6 +35,7 @@ bodyString='<form name="gpa">
 
     <label>Grade:
         <select id="secondG">
+            <option selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -59,6 +61,7 @@ bodyString='<form name="gpa">
 
     <label>Grade:
         <select id="thirdG">
+            <option selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -84,6 +87,7 @@ bodyString='<form name="gpa">
 
     <label>Grade:
         <select id="fourthG">
+            <option selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -113,11 +117,12 @@ footerString='
 </body>
 </html>'
 
-gpaCalc = () ->
-  req.body.fourthG
+calcGPA = () ->
+
+
 
 exports.formResponse = (req, res) ->
-  res.render 'GPA'
+  res.render 'gpa'
 
 exports.postResponse = (req, res) ->
-  res.send headerStr + bodyString + '<p>Your GPA is: ' + gpaCalc() '</p>' + footerStr
+  res.send headerStr + bodyString + '<p>Your GPA is: ' + calcGPA() + '</p>' + footerStr
