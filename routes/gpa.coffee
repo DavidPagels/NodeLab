@@ -6,7 +6,7 @@ headerString= '<!DOCTYPE html>
 <body>
 <h1>Enter your grades and number of credits</h1><br/>'
 
-bodyString='<form name="gpa">
+bodyString='<form method="post" action="/gpa">
     <label>Grade:
         <select id="firstG">
             <option selected="selected">none</option>
@@ -117,12 +117,11 @@ footerString='
 </body>
 </html>'
 
-calcGPA = () ->
-
 
 
 exports.formResponse = (req, res) ->
   res.render 'gpa'
 
 exports.postResponse = (req, res) ->
-  res.send headerStr + bodyString + '<p>Your GPA is: ' + calcGPA() + '</p>' + footerStr
+  console.log req
+  res.send headerStr + bodyString + '<p>Your GPA is: ' +'</p>' + footerStr
