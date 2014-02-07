@@ -1,4 +1,4 @@
-headerString= '<!DOCTYPE html>
+headerString='<!DOCTYPE html>
 <html>
 <head>
     <title>GPA Calculator</title>
@@ -8,8 +8,8 @@ headerString= '<!DOCTYPE html>
 
 bodyString='<form method="post" action="/gpa">
     <label>Grade:
-        <select id="firstG">
-            <option selected="selected">none</option>
+        <select name="firstG" id="firstG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -23,7 +23,8 @@ bodyString='<form method="post" action="/gpa">
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="first">
+        <select name="first" id="first">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -34,8 +35,8 @@ bodyString='<form method="post" action="/gpa">
     <br/>
 
     <label>Grade:
-        <select id="secondG">
-            <option selected="selected">none</option>
+        <select name="secondG" id="secondG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -49,7 +50,8 @@ bodyString='<form method="post" action="/gpa">
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="second">
+        <select name="second" id="second">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -60,8 +62,8 @@ bodyString='<form method="post" action="/gpa">
     <br/>
 
     <label>Grade:
-        <select id="thirdG">
-            <option selected="selected">none</option>
+        <select name="thirdG" id="thirdG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -75,7 +77,8 @@ bodyString='<form method="post" action="/gpa">
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="third">
+        <select name="third" id="third">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -86,8 +89,8 @@ bodyString='<form method="post" action="/gpa">
     <br/>
 
     <label>Grade:
-        <select id="fourthG">
-            <option selected="selected">none</option>
+        <select name="fourthG" id="fourthG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -101,7 +104,8 @@ bodyString='<form method="post" action="/gpa">
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="fourth">
+        <select name="fourth" id="fourth">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -110,18 +114,30 @@ bodyString='<form method="post" action="/gpa">
         </select>
     </label>
     <br/><br/>
-    <input type="button" id="gpaCalc" value="Calculate GPA"/>
-    <br/><br/>'
+    <input type="submit" id="gpaCalc" value="Calculate GPA"/>
+    <br/><br/></form>'
 
 footerString='
 </body>
 </html>'
 
-
+calcGPA = (g1, g2, g3, g4, c1, c2, c3, c4) ->
+  theGPA = (g1 * c1 + g2 * c2 + g3 * c3 + g4 * c4)/(c1 + c2 + c3 + c4)
+  theGPA
 
 exports.formResponse = (req, res) ->
   res.render 'gpa'
 
 exports.postResponse = (req, res) ->
-  console.log req
-  res.send headerStr + bodyString + '<p>Your GPA is: ' +'</p>' + footerStr
+  console.log req.body
+  grade1 = parseFloat(req.body.firstG)
+  grade2 = parseFloat(req.body.secondG)
+  grade3 = parseFloat(req.body.thirdG)
+  grade4 = parseFloat(req.body.fourthG)
+  credit1 = parseFloat(req.body.first)
+  credit2 = parseFloat(req.body.second)
+  credit3 = parseFloat(req.body.third)
+  credit4 = parseFloat(req.body.fourth)
+
+  res.send headerString + bodyString + '<p>Your GPA is: ' + calcGPA(grade1, grade2, grade3, grade4,
+    credit1, credit2, credit3, credit4) + '</p>' + footerString
