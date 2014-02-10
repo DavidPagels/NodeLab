@@ -1,3 +1,8 @@
+###
+  NodeCoffeeScriptLab
+  Programmers: David Pagels and Dillon Stenberg
+###
+
 assert = require 'assert'
 sumArr = require('./intro').sumArr
 sumUpTo = require('./intro').sumUpTo

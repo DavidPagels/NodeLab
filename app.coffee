@@ -8,7 +8,7 @@ Module dependencies.
 express = require("express")
 routes = require("./routes")
 user = require("./routes/user")
-gpa = require './routes/gpa'
+gpa = require("./routes/gpa")
 http = require("http")
 path = require("path")
 app = express()
