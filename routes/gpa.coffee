@@ -127,8 +127,9 @@ footerString='
 </body>\n
 </html>\n'
 
-calcGPA = (g1, g2, g3, g4, c1, c2, c3, c4) -> #calculates GPA between four grades
-  theGPA = (g1 * c1 + g2 * c2 + g3 * c3 + g4 * c4)/(c1 + c2 + c3 + c4)
+calcGPA = (GPArray) -> #calculates GPA between four grades
+  theGPA = (GPArray[0] * GPArray[1] + GPArray[2] * GPArray[3] + GPArray[4] * GPArray[5] + GPArray[6] * GPArray[7])/
+  (GPArray[1] + GPArray[3] + GPArray[5] + GPArray[7])
   theGPA
 
 gradeToFloat = (grade) -> #returns the corresponding GPA
@@ -151,7 +152,7 @@ exports.formResponse = (req, res) ->
   res.render 'gpa'
 
 exports.postResponse = (req, res) ->
-  grade1 = gradeToFloat(req.body.firstG)
+  grade1 = gradeToFloat(req.body.firstG) #parsing the data
   grade2 = gradeToFloat(req.body.secondG)
   grade3 = gradeToFloat(req.body.thirdG)
   grade4 = gradeToFloat(req.body.fourthG)
@@ -159,9 +160,11 @@ exports.postResponse = (req, res) ->
   credit2 = parseFloat(req.body.second)
   credit3 = parseFloat(req.body.third)
   credit4 = parseFloat(req.body.fourth)
+  #constructing the array
+  GPArray = [grade1, credit1, grade2, credit2, grade3, credit3, grade4, credit4]
 
-  res.send headerString + bodyString + '<p>Your GPA is: ' + calcGPA(grade1, grade2, grade3, grade4,
-    credit1, credit2, credit3, credit4) + '</p>' + footerString
+  #sending the updated page
+  res.send headerString + bodyString + '<p>Your GPA is: ' + calcGPA(GPArray) + '</p>' + footerString
 
 module.exports.calcGPA = calcGPA
 module.exports.gradeToFloat = gradeToFloat
