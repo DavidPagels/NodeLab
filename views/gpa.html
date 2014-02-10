@@ -1,3 +1,9 @@
+<!--
+NodeCoffeeScriptLab
+Programmers: David Pagels and Dillon Stenberg
+-->
+        
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +15,8 @@
 
 <form method="post" action="/gpa">
     <label>Grade:
-        <select id="firstG">
-            <option selected="selected">none</option>
+        <select name="firstG" id="firstG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -24,7 +30,8 @@
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="first">
+        <select name="first" id="first">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -35,8 +42,8 @@
     <br/>
 
     <label>Grade:
-        <select id="secondG">
-            <option selected="selected">none</option>
+        <select name="secondG" id="secondG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -50,7 +57,8 @@
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="second">
+        <select name="second" id="second">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -61,8 +69,8 @@
     <br/>
 
     <label>Grade:
-        <select id="thirdG">
-            <option selected="selected">none</option>
+        <select name="thirdG" id="thirdG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -76,7 +84,8 @@
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="third">
+        <select name="third" id="third">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -87,8 +96,8 @@
     <br/>
 
     <label>Grade:
-        <select id="fourthG">
-            <option selected="selected">none</option>
+        <select name="fourthG" id="fourthG">
+            <option value="0" selected="selected">none</option>
             <option value="4.0">A</option>
             <option value="3.7">A-</option>
             <option value="3.3">B+</option>
@@ -102,7 +111,8 @@
             <option value="0.0">F</option>
         </select></label>
     <label>Credits:
-        <select id="fourth">
+        <select name="fourth" id="fourth">
+            <option value="0" selected="selected">none</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -111,9 +121,8 @@
         </select>
     </label>
     <br/><br/>
-    <input type="button" id="gpaCalc" value="Calculate GPA"/>
-    <br/><br/>
-</form>
+    <input type="submit" id="gpaCalc" value="Calculate GPA"/>
+    <br/><br/></form>
 </body>
 </html>
 

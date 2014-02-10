@@ -1,6 +1,7 @@
 
 /*
- * GET home page.
+ NodeCoffeeScriptLab
+ Programmers: David Pagels and Dillon Stenberg
  */
 
 exports.index = function(req, res){

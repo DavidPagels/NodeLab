@@ -1,3 +1,9 @@
+###
+  NodeCoffeeScriptLab
+  Programmers: David Pagels and Dillon Stenberg
+###
+
+
 headerString='<!DOCTYPE html>
 <html>
 <head>
@@ -141,3 +147,6 @@ exports.postResponse = (req, res) ->
 
   res.send headerString + bodyString + '<p>Your GPA is: ' + calcGPA(grade1, grade2, grade3, grade4,
     credit1, credit2, credit3, credit4) + '</p>' + footerString
+
+
+  module.exports.calcGPA = calcGPA

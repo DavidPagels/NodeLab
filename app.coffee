@@ -1,4 +1,8 @@
 ###
+  NodeCoffeeScriptLab
+  Programmers: David Pagels and Dillon Stenberg
+###
+###
 Module dependencies.
 ###
 express = require("express")

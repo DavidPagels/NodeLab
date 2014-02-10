@@ -1,4 +1,7 @@
-
+/*
+NodeCoffeeScriptLab
+Programmers: David Pagels and Dillon Stenberg
+*/
 /*
  * GET users listing.
  */
